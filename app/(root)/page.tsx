@@ -21,15 +21,13 @@ export default function Home() {
   const { register, handleSubmit, formState: { errors } } = useForm<IFormInput>();
 
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
-    console.log(data)
+    // console.log(data)
 
     try{
       // @ts-ignore
       let response = await axios.post("/api/login", data)
 
-      if (response.status === 200) {
-        router.replace("/dashboard")
-      }
+      window.location.href = "/dashboard"
     }
     catch(e){
       console.error(e)

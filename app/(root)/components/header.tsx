@@ -5,7 +5,7 @@ import {cookies} from "next/headers";
 
 
 const LogoutButton = () => {
-    console.log(cookies().getAll())
+    // console.log(cookies().getAll())
     if (cookies().has("auth")){
         return (<Link href={"/logout"}><Button variant={"destructive"}>Logout</Button></Link>)
     }

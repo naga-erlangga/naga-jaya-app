@@ -41,7 +41,7 @@ export default function Dashboard() {
     return (
         <div className={"flex p-5 w-full h-screen gap-3 flex-col"}>
             <div className="text-lg font-bold">
-                Products with Harga Beli
+                Semua Product [ {display.length} ]
             </div>
             <div>
                 <div className="flex flex-col space-y-1.5">

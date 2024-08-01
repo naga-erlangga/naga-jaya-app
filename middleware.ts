@@ -14,13 +14,11 @@ export function middleware(req: NextRequest) {
 
     // If the user is trying to access the root path and is not authenticated
     if (pathname !== "/" && !cookies().has("auth")) {
-        console.log("path is not / and cookies is not found" )
+        // console.log("path is not / and cookies is not found" )
+
         // Redirect unauthenticated users to the login page
         return NextResponse.redirect(new URL('/', req.url));
     }
-
-    console.log(pathname)
-    console.log(cookies().has("auth"))
 
     // Continue to the requested route
     return NextResponse.next();

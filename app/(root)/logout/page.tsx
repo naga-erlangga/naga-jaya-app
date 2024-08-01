@@ -11,7 +11,7 @@ export default function Logout() {
         const logout = async () => {
             await axios.post("/api/logout")
 
-            router.replace("/")
+            window.location.href = "/"
         }
 
         logout()

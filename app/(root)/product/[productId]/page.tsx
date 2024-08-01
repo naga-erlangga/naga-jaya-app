@@ -68,7 +68,7 @@ const UpdateProductForm: React.FC = ({params}) => {
         <div className={'p-5'}>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                 <div>
-                    <Label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</Label>
+                    <Label htmlFor="name" className="block text-sm font-medium text-gray-700">Nama Product</Label>
                     <Input
                         id="name"
                         type="text"

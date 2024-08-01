@@ -15,6 +15,7 @@ export async function POST(req: NextRequest) {
     cookies().set("auth", token);
 
     if (username != USERNAME && password != PASSWORD) {
+        cookies().delete("auth")
         return new NextResponse("Invalid Credentials", {status: 401});
     }
 

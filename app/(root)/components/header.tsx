@@ -14,7 +14,7 @@ const LogoutButton = () => {
 }
 
 export default function Header() {
-    return (<div className={"flex justify-between p-3"}>
+    return cookies().has("auth") && (<div className={"flex justify-between p-3"}>
         <div className={"flex gap-5"}>
             {
                 ["Dashboard", "Product", "Admin"].map((value, index) => (

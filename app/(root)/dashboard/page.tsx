@@ -9,7 +9,7 @@ import {Input} from "@/components/ui/input";
 import {Button} from "@/components/ui/button";
 import axios from "axios";
 import {Product} from "@prisma/client";
-import {currencyFormat} from "@/lib/utils";
+import {currencyFormat, fuzzySearch} from "@/lib/utils";
 
 export default function Dashboard() {
     const [items, setItems] = useState<Product[]>([])
@@ -31,7 +31,11 @@ export default function Dashboard() {
     const [display, setDisplay] = useState(items)
 
     const fetchDisplay = () => {
-        setDisplay(items.filter((e) => e.name.toLowerCase().indexOf(search.toLowerCase()) >= 0))
+        setDisplay([])
+
+        setDisplay(
+            fuzzySearch(search.toLowerCase(), items)
+        )
     }
 
     const cleanDisplay = () => {
@@ -89,7 +93,7 @@ export default function Dashboard() {
                     {display.map((item) => {
                         return (
                             // @ts-ignore
-                            <TableRow key={item.name}>
+                            <TableRow key={item.name + item.id}>
                                 {/*// @ts-ignore*/}
                                 <TableCell className="font-medium">{item.name}</TableCell>
                                 {/*@ts-ignore*/}
